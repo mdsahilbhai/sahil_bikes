@@ -1,63 +1,62 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #111;
-    color: #fff;
-}
+const bikes = [
+    {
+        name: "Kawasaki Ninja H2",
+        image: "https://via.placeholder.com/300x200",
+        engine: "998cc",
+        power: "200+ bhp",
+        topSpeed: "300+ km/h",
+        price: "₹35 - 80 Lakh"
+    },
+    {
+        name: "Yamaha R1",
+        image: "https://via.placeholder.com/300x200",
+        engine: "998cc",
+        power: "200 bhp",
+        topSpeed: "299 km/h",
+        price: "₹20 Lakh"
+    },
+    {
+        name: "Ducati Panigale V4",
+        image: "https://via.placeholder.com/300x200",
+        engine: "1103cc",
+        power: "215 bhp",
+        topSpeed: "300 km/h",
+        price: "₹27 Lakh"
+    },
+    {
+        name: "BMW S1000RR",
+        image: "https://via.placeholder.com/300x200",
+        engine: "999cc",
+        power: "205 bhp",
+        topSpeed: "299 km/h",
+        price: "₹20 - 25 Lakh"
+    },
+    {
+        name: "Kawasaki Ninja ZX-10R",
+        image: "https://via.placeholder.com/300x200",
+        engine: "998cc",
+        power: "203 bhp",
+        topSpeed: "299 km/h",
+        price: "₹16 Lakh"
+    }
+];
 
-header {
-    text-align: center;
-    background: #e60000;
-    padding: 20px;
-}
+const container = document.getElementById("bikeContainer");
 
-header h1 {
-    margin: 0;
-}
+bikes.forEach(bike => {
+    const card = document.createElement("div");
+    card.classList.add("bike-card");
 
-.bike-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
-}
+    card.innerHTML = `
+        <img src="${bike.image}" alt="${bike.name}">
+        <h2>${bike.name}</h2>
+        <div class="specs">
+            <p><strong>Engine:</strong> ${bike.engine}</p>
+            <p><strong>Power:</strong> ${bike.power}</p>
+            <p><strong>Top Speed:</strong> ${bike.topSpeed}</p>
+        </div>
+        <div class="price">${bike.price}</div>
+    `;
 
-.bike-card {
-    background: #222;
-    margin: 15px;
-    padding: 15px;
-    width: 300px;
-    border-radius: 10px;
-    transition: 0.3s;
-}
-
-.bike-card:hover {
-    transform: scale(1.05);
-}
-
-.bike-card img {
-    width: 100%;
-    border-radius: 10px;
-}
-
-.bike-card h2 {
-    color: #ff4d4d;
-}
-
-.specs {
-    font-size: 14px;
-    margin-top: 10px;
-}
-
-.price {
-    font-size: 18px;
-    color: #00ff99;
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-footer {
-    text-align: center;
-    padding: 15px;
-    background: #000;
-}
+    container.appendChild(card);
+});
